@@ -284,3 +284,197 @@ p {
     font-weight: normal;
     line-height: 150% !important;
 }
+
+/* ===== Accordion "sanfona" com imagem (hover troca de imagem, clique abre outra imagem) ===== */
+
+.accordion-header {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Remove a moldura padrão do Bootstrap só nos itens com skin sanfona */
+.accordion-item:has(.sanfona-style) {
+    border: none;
+    background: transparent;
+}
+
+/* ---------- Cabeçalho (botão-imagem) ---------- */
+.accordion-button.sanfona-style {
+    position: relative;
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: none !important;
+}
+
+.accordion-button.sanfona-style:hover {
+    cursor: pointer;
+}
+
+/* Bootstrap 5 injeta chevron próprio no botão do accordion; neutraliza aqui */
+.accordion-button.sanfona-style::after {
+    display: none !important;
+}
+
+.accordion-img {
+    display: block;
+    width: 100%;
+}
+
+/* Imagem de hover fica sobreposta e some por padrão; aparece só no hover/focus */
+.accordion-img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.accordion-button.sanfona-style:hover .accordion-img-hover,
+.accordion-button.sanfona-style:focus-visible .accordion-img-hover {
+    opacity: 1;
+}
+
+/* ---------- Corpo (a imagem revelada ao clicar) ---------- */
+.accordion-bodysanfona {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* ===== Accordion "Referências" (cartão branco, ícone + / -) ===== */
+
+:root {
+    --petroleo500: #3E737C;
+    --petroleo200: #D0E1ED;
+    --petroleo100: #E2E8ED;
+}
+
+/* Remove a moldura padrão do Bootstrap só nos itens com skin card-style--white */
+.accordion-item:has(.card-style--white) {
+    border: none;
+    background: transparent;
+}
+
+/* ---------- Cabeçalho (cartão) ---------- */
+.accordion-button.card-style--white {
+    /* !important necessário: .accordion-item:first-of-type > .accordion-header .accordion-button
+       do Bootstrap 5 tem mais especificidade e sobrescreve para --bs-accordion-inner-border-radius (5px) */
+    border-radius: 12px !important;
+    padding: 24px 16px;
+    border-bottom: 3px solid #22272A;
+    background-color: #E3E8EA;
+    color: #22272A;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-button.card-style--white:hover {
+    background-color: #D3DADD;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* Bootstrap 5 pinta o botão e aplica sombra quando aberto — desliga os dois */
+.accordion-button.card-style--white:not(.collapsed) {
+    background-color: #E3E8EA;
+    color: #22272A;
+    box-shadow: none;
+    /* aberto: gruda no corpo logo abaixo — sem borda nem cantos arredondados embaixo */
+    border-bottom: none;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.accordion-button.card-style--white:focus {
+    box-shadow: none;
+}
+
+.accordion-button.card-style--white:focus-visible {
+    outline: 3px solid var(--petroleo500);
+    outline-offset: 2px;
+}
+
+/* ---------- Ícone + / - (pseudo-elemento, sem asset e sem JS) ---------- */
+/* Neutraliza o chevron do BS5 (background-image e rotate) e escreve o glifo no lugar */
+.accordion-button.card-style--white::after {
+    content: "\2212";
+    background-image: none;
+    background-color: transparent;
+    transform: none;
+    width: auto;
+    height: auto;
+    margin-left: 24px;
+    flex-shrink: 0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    color: #22272A;
+}
+
+.accordion-button.card-style--white.collapsed::after {
+    content: "+";
+}
+
+@media (max-width: 768px) {
+    .accordion-button.card-style--white {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .accordion-button.card-style--white::after {
+        font-size: 26px;
+    }
+}
+
+/* ---------- Painel ---------- */
+.accordion-body {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+
+/* Cartão interno azul-claro com as referências — sem cantos em cima, gruda no header */
+.accordion-body-p--white {
+    border-bottom: 3px solid #22272A;
+    width: 100%;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    background: #E3E8EA;
+}
+
+/* O site força margin: 20px !important em todo <p>; zera aqui e usa só o gap entre entradas */
+.referencias p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.referencias p + p {
+    margin-top: 12px !important;
+}
+
+.referencias a {
+    word-break: break-word;
+}

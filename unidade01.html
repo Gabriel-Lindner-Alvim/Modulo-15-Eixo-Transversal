@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header class="barra-header"></header>
@@ -279,7 +280,34 @@
             </div>
             <div class="col-12">
                 <p style="text-align: center">Quadro 1 - xxxx</p>
-                <p class="bg-danger">PLACEHOLDER DROPDOWN</p>
+
+                <!-- TODO: ajustar os caminhos de imagem abaixo (normal, hover, aberto) -->
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <div class="accordion" id="accordionSanfonaFontes">
+                            <div class="accordion-item">
+                                <h4 class="accordion-header" id="headingSanfonaFontes">
+                                    <button class="accordion-button sanfona-style collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSanfonaFontes"
+                                            aria-expanded="false" aria-controls="collapseSanfonaFontes">
+                                        <img src="./img/un1/fontes-informacao-normal.svg" class="accordion-img accordion-img-normal img-fluid" draggable="false"
+                                             alt="Fontes de informação para busca de evidências científicas">
+                                        <img src="./img/un1/fontes-informacao-hover.svg" class="accordion-img accordion-img-hover img-fluid" draggable="false"
+                                             alt="" aria-hidden="true">
+                                    </button>
+                                </h4>
+
+                                <div id="collapseSanfonaFontes" class="accordion-collapse collapse"
+                                     aria-labelledby="headingSanfonaFontes" data-bs-parent="#accordionSanfonaFontes">
+                                    <div class="accordion-bodysanfona">
+                                        <img src="./img/un1/fontes-informacao-aberto.svg" class="img-fluid" draggable="false"
+                                             alt="Quadro com as fontes de informação para busca de evidências científicas">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12">
                 <p>Atenção: nem toda informação disponível na internet possui qualidade científica adequada para subsidiar decisões clínicas ou projetos de intervenção. Antes de utilizar uma informação, é importante verificar sua origem, a existência de referências bibliográficas e a credibilidade da instituição responsável pela publicação.</p>
@@ -295,8 +323,52 @@
                 </ul>
                 <p>As ferramentas de inteligência artificial podem auxiliar na localização e organização de informações, mas não substituem a consulta às fontes originais. Sempre que uma evidência for identificada por meio dessas ferramentas, recomenda-se verificar o artigo, protocolo ou documento original antes de utilizá-lo para fundamentar decisões clínicas ou projetos de intervenção.</p>
             </div>
-            <div class="col-12">
-                <p class="bg-danger">PLACEHOLDER DROPDOWN REFERENCIAS</p>
+            <!-- TODO: completar as referências ABNT abaixo (uma por citação já usada no texto da unidade) -->
+            <div class="col-12 mt-4 mb-4">
+                <div class="accordion" id="accordionReferencias">
+                    <div class="accordion-item">
+
+                        <h4 class="accordion-header" id="headingReferencias">
+                            <button class="accordion-button card-style--white collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#painelReferencias"
+                                    aria-expanded="false" aria-controls="painelReferencias">
+                                Referências
+                            </button>
+                        </h4>
+
+                        <div id="painelReferencias" class="accordion-collapse collapse"
+                             aria-labelledby="headingReferencias"
+                             data-bs-parent="#accordionReferencias">
+                            <div class="accordion-body">
+                                <div class="accordion-body-p--white referencias">
+                                    <p>ALPERT JS. Common Sense and Medical Practice. The American Journal of Medicine. 2019;132(9):1004-1005. doi:10.1016/j.amjmed.2019.05.011. Disponível em: https://www.amjmed.com/article/S0002-9343(19)30440-1/pdf.</p>
+                                    <p>Boudry, M. (2021). Diagnosing Pseudoscience – by Getting Rid of the Demarcation Problem. Journal for General Philosophy of Science, 53, 83 - 101. https://doi.org/10.1007/s10838-021-09572-4  </p>
+                                    <p>BRASIL. Ministério da Saúde. Política Nacional de Atenção Integral à Saúde das Pessoas Privadas de Liberdade no Sistema Prisional (PNAISP): diretrizes atualizadas e documentos orientadores. Brasília: Ministério da Saúde, 2014.</p>
+                                    <p>CAMPOS, Francisco Carlos Cardoso de; FARIA, Horácio Pereira de; SANTOS, Max André dos. Planejamento e avaliação das ações em saúde. 2. ed. Belo Horizonte: Nescon/UFMG; Coopmed, 2010. Disponível em: https://www.nescon.medicina.ufmg.br/biblioteca/imagem/0273.pdf. Acesso em: 22 jun. 2025.</p>
+                                    <p>DUSIN, J.; MELANSON, A.; MISCHE-LAWSON, L. Evidence-based practice models and frameworks in the healthcare setting: a scoping review. BMJ Open, v. 13, n. 5, e071188, 2023. DOI: 10.1136/bmjopen-2022-071188. Disponível em: https://bmjopen.bmj.com/content/bmjopen/13/5/e071188.full.pdf. Acesso em: 22 jun. 2026.</p>
+                                    <p>Hansson, S. O. (2024). Scientific Expertise is Needed to Identify Pseudoscience. Acta Baltica Historiae et Philosophiae Scientiarum. https://doi.org/10.11590/abhps.2024.1.05 </p>
+                                    <p>LÉON-JIMÉNEZ, F. Health in persons deprived of their liberty in South America: a painful reflection of our public health. Annals of Global Health, v. 90, n. 1, p. e4171, 2024. DOI: 10.5334/aogh.4171. Disponível em: https://storage.googleapis.com/jnl-up-j-agh-files/journals/1/articles/4171/6613cc7188d81.pdf</p>
+                                    <p>LOPES-JÚNIOR, L. C. Evidence-based practice: incorporating research into clinical practice. Revista de Enfermagem da UFPI, v. 12, e4400, 2023. DOI: 10.26694/reufpi.v12i1.4400.</p>
+                                    <p>MARCELINO, Karina Francine; MORAES, Mário César Barreto. Decolonizando o conhecimento: perspectivas das epistemologias do Sul no campo das políticas de ações afirmativas. REAd: Revista Eletrônica de Administração, 2024. Disponível em: https://doi.org/10.1590/1413-2311.423.130139</p>
+                                    <p>MARCONI, Marina de Andrade; LAKATOS, Eva Maria. Fundamentos de metodologia científica. 9. ed. São Paulo: Atlas, 2021.</p>
+                                    <p>MELO, Gilcerlândia Pinheiro Almeida Nunes et al. Ciência e construção do conhecimento científico: o empirismo lógico e o racionalismo crítico. Revista Foco, v. 17, n. 7, 2024. DOI: 10.54751/revistafoco.v17n7-057. Disponível em: https://ojs.focopublicacoes.com.br/foco/article/download/5658</p>
+                                    <p>MENDONÇA, P.; FRANCO, L. G. A ciência aberta e a área de educação em ciências: perspectivas e diálogos. 2021. DOI: 10.1590/1983-21172021230102.</p>
+                                    <p>NAZARENO, G.; REISDORFER, Grasiele. Metodologia científica: reflexões sobre pensamentos epistemológicos. Revista Científica Cognitionis, 2023. DOI: 10.38087/2595.8801.176. Disponível em: https://revista.cognitioniss.org/index.php/cogn/article/download/195/192</p>
+                                    <p>ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). Estratégia e Plano de Ação sobre Saúde nas Prisões para as Américas. Washington, DC: OPAS, 2022.</p>
+                                    <p>ORTH, Glaucia Mayara Niedermeyer et al. Mental disorders in adults deprived of liberty in American countries: a scoping review. Cadernos de Saúde Pública, v. 41, 2025. DOI: 10.1590/0102-311XEN200624. Disponível em: https://pmc.ncbi.nlm.nih.gov/articles/PMC12494386/pdf/1678-4464-csp-41-09-EN200624.pdf</p>
+                                    <p>SACKETT, David L. et al. Evidence-based medicine: what it is and what it isn't. BMJ, v. 312, n. 7023, p. 71–72, 13 jan. 1996. Disponível em: https://www.bmj.com/content/312/7023/71</p>
+                                    <p>SANTOS, Antônio Nacílio Sousa dos et al. "Ordem de saúde, norma familiar": entrelaçando os saberes técnico-científicos sanitaristas e o conhecimento cultural popular de medicina familiar no imaginário coletivo. Observatorio de la Economía Latinoamericana, v. 22, n. 9, 2024. DOI: 10.55905/oelv22n9-202. Disponível em: https://ojs.observatoriolatinoamericano.com/ojs/index.php/olel/article/download/6930/4370</p>
+                                    <p>SANTOS, Matheus Augusto Teixeira dos; HENRIQUE, Thaiane Paula Lima; PERNAMBUCO, Andrei Pereira. Competências e barreiras na utilização da prática baseada em evidências por profissionais de saúde primária. Revista FisiSenectus, v. 12, n. 1, 2024. DOI: 10.22298/rfs.2024.v12.n1.8061. Disponível em: https://bell.unochapeco.edu.br/revistas/index.php/fisisenectus/article/download/8061/4133</p>
+                                    <p>SOARES FILHO, M. M.; BUENO, P. M. M. G. Demografia, vulnerabilidades e direito à saúde da população prisional brasileira. Ciência & Saúde Coletiva, v. 21, n. 7, p. 1999-2010, 2016.</p>
+                                    <p>TOASSI, R. F. C. et al. Metodologia Científica Aplicada à Área da Saúde. Porto Alegre: Editora da UFRGS, 2021.</p>
+                                    <p>VIDAL, Gislleny et al. Desinforma o em Sa de nas Redes Sociais: Desafios para a Sa de Coletiva. Interference, v. 11, n. 2, p. 2119 2129, 2025. DOI: 10.36557/2009-3578.2025v11n2p2119-2129. Dispon vel em: https://interferencejournal.emnuvens.com.br/revista/article/download/201/190</p>
+                                    <p>WORLD HEALTH ORGANIZATION (WHO). Health in Prisons: Strategic Priorities for the WHO European Region 2020–2025. Copenhagen: WHO Regional Office for Europe, 2021. https://www.who.int/europe/publications/i/item/WHOEURO-2021-1470-41286-56037</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
