@@ -478,3 +478,193 @@ p {
 .referencias a {
     word-break: break-word;
 }
+
+/* ===== Card giratório (flip card) ===== */
+
+.maincontainer {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 350 / 177;
+    max-height: 177px;
+    margin: 0 auto;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.maincontainer-200 {
+    aspect-ratio: 350 / 200;
+    max-height: 200px;
+}
+
+.thecard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.thecard.flipped {
+    transform: rotateY(180deg);
+}
+
+.thefront,
+.theback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    color: #333;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.thefront {
+    overflow: hidden;
+}
+
+.thefront img:not(.card-girar) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.theback {
+    transform: rotateY(180deg);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 14px 40px 14px 16px;
+    font-size: 22px;
+    line-height: 1.25;
+}
+
+.theback p {
+    font-weight: 600;
+}
+
+.theback-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.theback-titulo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0E497E;
+}
+
+.theback .theback-texto {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.card-girar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .row-flip-par > .col-md-6:nth-child(odd) .maincontainer {
+        margin-right: 0;
+    }
+
+    .row-flip-par > .col-md-6:nth-child(even) .maincontainer {
+        margin-left: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .thecard {
+        transition: none;
+    }
+}
+
+/* ===== Accordion "azul" (cabeçalho descolado do corpo, sem borda) ===== */
+
+.accordion-item:has(.card-style--blue) {
+    border: none;
+    background: transparent;
+}
+
+.accordion-button.card-style--blue {
+    border-radius: 12px !important;
+    padding: 24px 16px;
+    background-color: #003BBA;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-button.card-style--blue:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.accordion-button.card-style--blue:not(.collapsed) {
+    background-color: #0783FF;
+    color: #fff;
+    box-shadow: none;
+}
+
+.accordion-button.card-style--blue:focus {
+    box-shadow: none;
+}
+
+.accordion-button.card-style--blue:focus-visible {
+    outline: 3px solid #0783FF;
+    outline-offset: 2px;
+}
+
+/* ---------- Seta (pseudo-elemento com imagem, troca ao abrir) ---------- */
+.accordion-button.card-style--blue::after {
+    content: "";
+    background-image: url('../img/geral/nav-arrow-down.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 24px;
+    flex-shrink: 0;
+    transform: none;
+}
+
+.accordion-button.card-style--blue:not(.collapsed)::after {
+    background-image: url('../img/geral/nav-arrow-up.svg');
+}
+
+@media (max-width: 768px) {
+    .accordion-button.card-style--blue {
+        max-width: 100%;
+        font-size: 16px;
+    }
+}
+
+/* ---------- Corpo: descolado do cabeçalho, sem borda, cantos completos ---------- */
+.accordion-body-p--blue {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    background: #E2EFFC;
+    margin-top: 12px;
+}
