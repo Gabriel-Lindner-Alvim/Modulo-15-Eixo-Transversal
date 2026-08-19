@@ -20,6 +20,18 @@ body {
     color: #fff;
 }
 
+.faixa-titulo-cards {
+    background-color: #003BBA;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 8px 16px;
+    margin-bottom: 0;
+}
+
 .lista-outline,
 .lista-outline ol {
     list-style: none;
@@ -148,6 +160,44 @@ body {
 }
 
 .card-destaque p {
+    color: #22272A;
+    margin-bottom: 0 !important;
+}
+
+.card-reflexao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 16px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: -8px 4px 2px 2px #0037D7;
+    padding: 24px 32px;
+}
+
+.card-reflexao-icone {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card-reflexao-texto {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.card-reflexao h4 {
+    color: #0037D7;
+    font-weight: bold;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+.card-reflexao p {
     color: #22272A;
     margin-bottom: 0 !important;
 }
@@ -283,6 +333,10 @@ p {
     font-size: 18px;
     font-weight: normal;
     line-height: 150% !important;
+}
+
+.paragrafo-recuo {
+    padding-left: 60px;
 }
 
 /* ===== Accordion "sanfona" com imagem (hover troca de imagem, clique abre outra imagem) ===== */
