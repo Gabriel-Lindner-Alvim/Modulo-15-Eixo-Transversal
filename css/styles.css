@@ -405,6 +405,128 @@ p {
     margin-bottom: 20px;
 }
 
+/* ===== Tabs "Ideia principal / Desenvolvimento / Conclusão" (hover fixa a aba até passar em outra) ===== */
+
+.paragrafo-tabs-botoes {
+    display: inline-flex;
+    max-width: 100%;
+}
+
+.paragrafo-tab {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 56px;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+    color: #0037D7;
+    background-color: transparent;
+    border: 2px solid #0037D7;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (min-width: 769px) {
+    .paragrafo-tab + .paragrafo-tab {
+        border-left: none;
+    }
+}
+
+.paragrafo-tab-1 {
+    border-radius: 16px 0 0 16px;
+}
+
+.paragrafo-tab-3 {
+    border-radius: 0 16px 16px 0;
+}
+
+.paragrafo-tab-seta {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+}
+
+.paragrafo-tab-seta img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.paragrafo-tab-seta-branca {
+    opacity: 0;
+}
+
+.paragrafo-tab-seta-azul {
+    opacity: 1;
+}
+
+/* Aba ativa: fixada via JS (classe permanece até outra aba receber hover/foco) */
+.paragrafo-tab.paragrafo-tab-ativo {
+    background-color: #0044FF;
+    border-color: #0044FF;
+    color: #EBF6FF;
+}
+
+.paragrafo-tab.paragrafo-tab-ativo .paragrafo-tab-seta-branca {
+    opacity: 1;
+}
+
+.paragrafo-tab.paragrafo-tab-ativo .paragrafo-tab-seta-azul {
+    opacity: 0;
+}
+
+/* ---------- Conteúdo ---------- */
+.paragrafo-tabs-conteudo {
+    background-color: #E2EFFC;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-top: 16px;
+}
+
+.paragrafo-tab-texto {
+    display: none;
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+}
+
+.paragrafo-tabs:has(.paragrafo-tab-1.paragrafo-tab-ativo) .paragrafo-tab-texto-1,
+.paragrafo-tabs:has(.paragrafo-tab-2.paragrafo-tab-ativo) .paragrafo-tab-texto-2,
+.paragrafo-tabs:has(.paragrafo-tab-3.paragrafo-tab-ativo) .paragrafo-tab-texto-3 {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .paragrafo-tabs-botoes {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .paragrafo-tab {
+        width: 100%;
+    }
+
+    .paragrafo-tab-1 {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .paragrafo-tab-3 {
+        border-radius: 0 0 16px 16px;
+    }
+}
+
 /* ===== Accordion "Referências" (cartão branco, ícone + / -) ===== */
 
 :root {

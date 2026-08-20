@@ -17,4 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
     card.classList.toggle('flipped');
   }, { passive: false });
 
+  /* Tabs "Ideia principal / Desenvolvimento / Conclusão": passar o mouse fixa a aba até passar em outra */
+  const ativarParagrafoTab = (tab) => {
+    const grupo = tab.closest('.paragrafo-tabs');
+    if (!grupo || tab.classList.contains('paragrafo-tab-ativo')) return;
+    grupo.querySelectorAll('.paragrafo-tab-ativo').forEach((el) => el.classList.remove('paragrafo-tab-ativo'));
+    tab.classList.add('paragrafo-tab-ativo');
+  };
+
+  document.addEventListener('mouseover', (ev) => {
+    const tab = ev.target.closest('.paragrafo-tab');
+    if (tab) ativarParagrafoTab(tab);
+  }, { passive: true });
+
+  document.addEventListener('focusin', (ev) => {
+    const tab = ev.target.closest('.paragrafo-tab');
+    if (tab) ativarParagrafoTab(tab);
+  });
+
 });
