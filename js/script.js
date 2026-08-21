@@ -35,4 +35,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab) ativarParagrafoTab(tab);
   });
 
+  /* Carousel de itens (setas + caixa): seta esquerda volta, direita avança; desabilitam nas extremidades */
+  document.querySelectorAll('.carousel-etica').forEach((carousel) => {
+    const itens = [...carousel.querySelectorAll('.carousel-etica-item')];
+    const btnPrev = carousel.querySelector('.carousel-seta-prev');
+    const btnNext = carousel.querySelector('.carousel-seta-next');
+    let indice = 0;
+
+    const atualizarBotao = (btn) => {
+      const img = btn.querySelector('img');
+      img.src = btn.disabled ? btn.dataset.inativa : btn.dataset.ativa;
+    };
+
+    const atualizarCarousel = () => {
+      itens.forEach((item, i) => item.classList.toggle('ativo', i === indice));
+      btnPrev.disabled = indice === 0;
+      btnNext.disabled = indice === itens.length - 1;
+      atualizarBotao(btnPrev);
+      atualizarBotao(btnNext);
+    };
+
+    btnPrev.addEventListener('click', () => {
+      if (indice === 0) return;
+      indice -= 1;
+      atualizarCarousel();
+    });
+
+    btnNext.addEventListener('click', () => {
+      if (indice === itens.length - 1) return;
+      indice += 1;
+      atualizarCarousel();
+    });
+
+    atualizarCarousel();
+  });
+
 });
